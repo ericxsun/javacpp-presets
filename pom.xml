@@ -536,6 +536,7 @@
         <module>liquidfun</module>
         <module>skia</module>
         <module>systems</module>
+        <module>ltp</module>
       </modules>
       <properties>
         <javacpp.platform>${os.name}-${os.arch}</javacpp.platform>
@@ -1109,6 +1110,7 @@
         <module>liquidfun</module>
         <module>skia</module>
         <module>systems</module>
+        <module>ltp</module>
       </modules>
       <properties>
         <javacpp.platform.android-arm></javacpp.platform.android-arm>
@@ -1171,6 +1173,7 @@
         <module>liquidfun</module>
         <module>skia</module>
         <module>systems</module>
+        <module>ltp</module>
       </modules>
       <properties>
         <javacpp.platform.android-arm></javacpp.platform.android-arm>
@@ -1230,6 +1233,7 @@
         <module>liquidfun</module>
         <module>skia</module>
         <module>systems</module>
+        <module>ltp</module>
       </modules>
       <properties>
         <javacpp.platform.android-arm></javacpp.platform.android-arm>
