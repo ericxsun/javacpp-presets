@@ -29,8 +29,8 @@ case ${PLATFORM} in
         export CXX="g++ -m64"
         ;;
     macosx-*)
-        export CC="/usr/local/opt/llvm/bin/clang"
-        export CXX="/usr/local/opt/llvm/bin/clang++"
+        export CC="clang"
+        export CXX="clang++"
         ;;
     *)
         echo "Error: Platform \"${PLATFORM}\" is not supported"
