@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>org.bytedeco</groupId>
+    <artifactId>javacpp-presets</artifactId>
+    <version>1.4.3-SNAPSHOT</version>
+  </parent>
+
+  <groupId>org.bytedeco.javacpp-presets</groupId>
+  <artifactId>ltp</artifactId>
+  <version>${ltp.version}-${project.parent.version}</version>
+  <name>JavaCPP Presets for LTP</name>
+
+  <properties>
+    <ltp.version>3.4.1</ltp.version>
+    <ltp.path>${basedir}/cppbuild/${javacpp.platform}${javacpp.platform.extension}/ltp-${ltp.version}/</ltp.path>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.bytedeco</groupId>
+      <artifactId>javacpp</artifactId>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <groupId>org.bytedeco</groupId>
+        <artifactId>javacpp</artifactId>
+        <configuration>
+          <compilerOptions>
+            <compilerOption>-std=c++11</compilerOption>
+          </compilerOptions>
+          <classPaths>
+            <classPath>${project.build.outputDirectory}</classPath>
+          </classPaths>
+          <includePaths>
+            <includePath>${basedir}/cppbuild/${javacpp.platform}/include/</includePath>
+          </includePaths>
+          <linkPaths>
+            <linkPath>${basedir}/cppbuild/${javacpp.platform}/lib/</linkPath>
+          </linkPaths>
+          <preloadPaths>
+            <preloadPath>${basedir}/cppbuild/${javacpp.platform}/bin/</preloadPath>
+          </preloadPaths>
+        </configuration>
+        <executions>
+          <execution>
+            <id>javacpp.parser</id>
+            <configuration>
+              <classOrPackageName>org.bytedeco.javacpp.presets.ltp</classOrPackageName>
+            </configuration>
+          </execution>
+          <execution>
+            <id>javacpp.compiler</id>
+            <configuration>
+              <classOrPackageName>org.bytedeco.javacpp.ltp</classOrPackageName>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-javadoc-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+</project>
